@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="postIt.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header onmouseover="postContent('header')" ></header>
+    <aside onmouseover="postContent('aside')"></aside>
+    <footer></footer>
+    <section class="mainSup">
+    <p ><span onmouseover="postIt(); postContent(dinamicPost(0)); onPost()" onmouseout="erasePost()" onclick="clickPost()">hola</span> soy <span onmouseover="postContent('este es mi nombre')">joao</span></p></section>
+    <section class="mainBot" onmouseover="postContent('mainBot')"></section>
+
+    <div id="postar" ></div>
+
+
+</body>
+
+</html>
