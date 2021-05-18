@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="postIt.js"></script>
     <title>Document</title>
+    <script>
+        window.nomeSpan= "numeero";
+    </script>
 </head>
 
 <body>
@@ -15,11 +18,18 @@
     <aside onmouseover="postContent('aside')"></aside>
     <footer></footer>
     <section class="mainSup">
-    <p ><span onmouseover="postIt(); postContent(dinamicPost(0)); onPost()" onmouseout="erasePost()" onclick="clickPost()">hola</span> soy <span onmouseover="postContent('este es mi nombre')">joao</span></p></section>
-    <section class="mainBot" onmouseover="postContent('mainBot')"></section>
+    <p id="nem"><span onmouseover="postIt(); postContent(dinamicPost(3, 0))" onmouseout="erasePost()" onclick="clickPost(3)">hola</span> soy <span onmouseover="postContent('este es mi nombre')">joao</span></p></section>
+    <section class="mainBot" >
+
+    <button onclick="postIt(); postContent('texto: '+dinamicPost(3, 2))">fdasdfs</button></section>
 
     <div id="postar" ></div>
 
+    <article class="none">
+        <div id="numeero0">Haz clic</div>
+        <div id="numeero1">Para cambiar el contenido</div>
+        <div id="numeero2">Muy bien</div>
+    </article>
 
 </body>
 
