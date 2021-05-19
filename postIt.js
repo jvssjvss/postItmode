@@ -1,8 +1,8 @@
-//Identificar o id do post-it o dos clicks
+//Identificar o id do post-it, clicks, etc.
 function traceId(id){
     return document.getElementById(id);
 }
-//Converter o resultado do html do click em 
+//Converter o resultado do html do click em um número inteiro
 function integerId(){
     return parseInt(traceId("click").innerText);
 }
@@ -58,27 +58,24 @@ function postContent(content){
     traceId("postar").style.backgroundColor = postItColor();
 }
 //Criar um array com o conteúdo de todos os posts
-function dinamicPost(indicador, item){
+function dinamicPost(indicador, item, nomeTag){
 let matrix = [];
 matrix.length=indicador;
 for (i=0; i<matrix.length; i++){
-    matrix[i]= traceId(nomeSpan+i).innerText;
+    matrix[i]= traceId(nomeTag+i).innerText;
     console.log(i)
    } return matrix[item];
 }
 
 
-//Sinalizar o último item do contador
-function clickPost(itemFinal){
+//Sinalizar o último item do contador e o nome do array que será utilizado
+function clickPost(itemFinal, nomeTag){
     clicks("suma");
 
     switch(integerId()){
         case itemFinal:
-            clicks("zerar");
-            postContent(dinamicPost(itemFinal, clicks("resultado")));
-            break;
-        default:
-            postContent(dinamicPost(itemFinal, clicks("resultado")));
+            clicks("zerar");     
             break;
     }
+    postContent(dinamicPost(itemFinal, clicks("resultado"), nomeTag));
 }

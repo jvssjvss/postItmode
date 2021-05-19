@@ -134,14 +134,13 @@ body{
 
 #postar{
     display: none;
-    background-color: lightgreen;
     height: 40vh;
     width: 50vh;
     z-index: 10;
     position: absolute;
     left: 20vh;
     top: 20vh;
-    color: white;
+    color: gray;
     font-size: 1.5rem;
     font-weight: bolder;
     box-shadow: 0 0 10px black;
