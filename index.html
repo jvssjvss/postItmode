@@ -14,22 +14,24 @@
 </head>
 
 <body>
-    <header onmouseover="postIt();postContent('header')" ></header>
-    <aside onmouseover="postContent('aside')"></aside>
+    <header onmouseover="postIt(true);postContent('header')" ></header>
+    <aside onmouseover="postContent('aside')"><article id="click">0</article></aside>
     <footer></footer>
     <section class="mainSup">
-    <p id="nem"><span onmouseover="postIt(); postContent(dinamicPost(3, 0))" onmouseout="erasePost()" onclick="clickPost(3)">hola</span> soy <span onmouseover="postContent('este es mi nombre')">joao</span></p></section>
+    <p id="nem"><span onmouseover="postIt(true); postContent(dinamicPost(3, 0))" onmouseout="postIt(false)" onclick="clickPost(3)">hola</span> soy <span onmouseover="postContent('este es mi nombre')">joao</span></p></section>
     <section class="mainBot" >
 
-    <button onclick="postIt(); postContent('texto: '+dinamicPost(3, 2))">fdasdfs</button></section>
+    <button onclick="postIt(true); postContent('texto: '+dinamicPost(3, 1))">fdasdfs</button></section>
 
     <div id="postar" ></div>
-
-    <article class="none">
+        
+    <section class="none">
+        <article id="nomeSpan">numeero</article>
+        
         <div id="numeero0">Haz clic</div>
         <div id="numeero1">Para cambiar el contenido</div>
         <div id="numeero2">Muy bien</div>
-    </article>
+    </section>
 
 </body>
 

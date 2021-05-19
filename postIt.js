@@ -1,59 +1,84 @@
+//Identificar o id do post-it o dos clicks
+function traceId(id){
+    return document.getElementById(id);
+}
+//Converter o resultado do html do click em 
+function integerId(){
+    return parseInt(traceId("click").innerText);
+}
 
-//marcar o número de clicks
-window.click=0;
+//Identificar o contador de click no html
+function clicks(tyoe){
+    switch(tyoe){
+        //marcar o número de clicks
+        case "suma":
+            let f = integerId();
+            f = f+1;
+            traceId("click").innerText = f;
+        break;
+        //zerar o número de clicks
+        case "zerar":
+            traceId("click").innerText=0;
+        break;}
+
+    //resultado do número de clicks
+    return traceId("click").innerText;
+}
+
+
 
 //Trocar as cores do post-it
 function postItColor(){
-    const colorPost= ['lightgreen', 'pink', 'lightblue', '#FFFF66'];
+    let colorPost= ['lightgreen', 'pink', 'lightblue', '#FFFF66'];
     let colorIndex = Math.floor(Math.random()*colorPost.length);
     let actualColor = colorPost[colorIndex];
-    return (note.style.backgroundColor = actualColor);
+    return  actualColor;
 }
 
 //Tornar visível o post-it
-function postIt(){
-    window.note=document.getElementById("postar");
-    note.style.display="block";
-    postItColor();
+function postIt(status){
 
-}
-
+    switch(status){
+    case true:
+    traceId("postar").style.display="block";
+    traceId("postar").style.backgroundColor = postItColor();
+    break;
 //Apagar o post-it e zerar o click
-function erasePost(){
-    note.style.display="none";
-    click=0;}
+    case false:
+    traceId("postar").style.display="none";
+    clicks("zerar");
+    break;
+    }
 
-function postContent(content){
-    note.innerText = content;
 }
+
+//Delimitar o conteúdo do post-it
+function postContent(content){
+    traceId("postar").innerText = content;
+    traceId("postar").style.backgroundColor = postItColor();
+}
+//Criar um array com o conteúdo de todos os posts
 function dinamicPost(indicador, item){
 let matrix = [];
 matrix.length=indicador;
 for (i=0; i<matrix.length; i++){
-    matrix[i]= document.getElementById(nomeSpan+i).innerText;
+    matrix[i]= traceId(nomeSpan+i).innerText;
     console.log(i)
    } return matrix[item];
 }
 
 
-
-
-function onPost(){
-    for (i=0; i<4; i++){
-    setTimeout(()=> postContent(dinamicPost(click)), i*1000);}}
-
+//Sinalizar o último item do contador
 function clickPost(itemFinal){
-    click=click+1;
-    postItColor();
+    clicks("suma");
 
-
-    switch(click){
+    switch(integerId()){
         case itemFinal:
-            click=0;
-            postContent(dinamicPost(itemFinal, click));
+            clicks("zerar");
+            postContent(dinamicPost(itemFinal, clicks("resultado")));
             break;
         default:
-            postContent(dinamicPost(itemFinal, click));
+            postContent(dinamicPost(itemFinal, clicks("resultado")));
             break;
     }
 }
